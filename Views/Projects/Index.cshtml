@@ -1,0 +1,103 @@
+﻿@model List<MyPortfolio.Models.Project>
+
+@{
+    ViewData["Title"] = "My Projects";
+}
+
+<div class="projects-page">
+
+    <div class="projects-header">
+
+        <h1>My Portfolio</h1>
+
+        <p>
+            Here are some of my IT Elective 2 projects and activities.
+        </p>
+
+    </div>
+
+
+    <div class="table-of-contents">
+
+        <h2>Table of Contents</h2>
+
+        <ol>
+
+            @foreach (var project in Model)
+            {
+                <li>
+                    <a href="#project-@project.Id">
+                        @project.Name
+                    </a>
+                </li>
+            }
+
+        </ol>
+
+    </div>
+
+
+    <div class="project-grid">
+
+        @foreach (var project in Model)
+        {
+            <div class="project-card"
+                 id="project-@project.Id">
+
+                <div class="project-image">
+
+                    <img src="@project.ImageUrl"
+                         alt="@project.Name" />
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h2>
+                        @project.Name
+                    </h2>
+
+                    <p>
+                        @project.Description
+                    </p>
+
+                    <p class="technology">
+
+                        <strong>Technology:</strong>
+
+                        @project.Technologies
+
+                    </p>
+
+
+                    <div class="project-buttons">
+
+                        <a asp-controller="Projects"
+                           asp-action="Details"
+                           asp-route-id="@project.Id"
+                           class="btn-details">
+
+                            View Details
+
+                        </a>
+
+
+                        <a href="@project.GithubUrl"
+                           target="_blank"
+                           class="btn-github">
+
+                            View Project
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

@@ -1,0 +1,65 @@
+﻿@model MyPortfolio.Models.Project
+
+@{
+    ViewData["Title"] = "Project Details";
+}
+
+<div class="project-details-page">
+
+    <div class="project-details-card">
+
+        <div class="project-details-image">
+
+            <img src="@Model.ImageUrl"
+                 alt="@Model.Name" />
+
+        </div>
+
+
+        <div class="project-details-content">
+
+            <h1>
+                @Model.Name
+            </h1>
+
+            <p class="project-description">
+                @Model.Description
+            </p>
+
+
+            <div class="project-info">
+
+                <p>
+                    <strong>Technology:</strong>
+                    @Model.Technologies
+                </p>
+
+            </div>
+
+
+            <div class="project-details-buttons">
+
+                <a href="@Model.GithubUrl"
+                   target="_blank"
+                   class="btn-project">
+
+                    View Project
+
+                </a>
+
+
+                <a asp-controller="Projects"
+                   asp-action="Index"
+                   class="btn-back">
+
+                    Back to Projects
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
